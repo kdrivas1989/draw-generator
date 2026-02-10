@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw Generator</title>
-    <link href="/static/css/tailwind.css" rel="stylesheet">
+    <link href="static/css/tailwind.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <nav class="bg-gray-800 p-4">
@@ -583,9 +583,9 @@
 
             if (randomsEl) {
                 randomsEl.innerHTML = Object.entries(fs4wayRandoms).map(([code, name]) =>
-                    `<div class="text-center cursor-pointer hover:opacity-80" onclick="openModal('/static/formations/FS-${code}.png', '${code} - ${name}')">
+                    `<div class="text-center cursor-pointer hover:opacity-80" onclick="openModal('static/formations/FS-${code}.png', '${code} - ${name}')">
                         <div class="font-bold text-lg">${code}</div>
-                        <img src="/static/formations/FS-${code}.png" alt="${code}" class="w-20 h-20 object-contain bg-white rounded mx-auto">
+                        <img src="static/formations/FS-${code}.png" alt="${code}" class="w-20 h-20 object-contain bg-white rounded mx-auto">
                         <div class="text-xs text-gray-400 mt-1">${name}</div>
                     </div>`
                 ).join('');
@@ -593,10 +593,10 @@
 
             if (blocksEl) {
                 blocksEl.innerHTML = Object.entries(fs4wayBlocks).map(([num, name]) =>
-                    `<div class="text-center cursor-pointer hover:opacity-80 pb-4" onclick="openModal('/static/formations/FS-${num}.png', '${num} - ${name}')">
+                    `<div class="text-center cursor-pointer hover:opacity-80 pb-4" onclick="openModal('static/formations/FS-${num}.png', '${num} - ${name}')">
                         <div class="font-bold text-lg">${num}</div>
                         <div class="bg-white rounded mx-auto inline-block p-2">
-                            <img src="/static/formations/FS-${num}.png" alt="${num}" class="w-20">
+                            <img src="static/formations/FS-${num}.png" alt="${num}" class="w-20">
                         </div>
                         <div class="text-xs text-gray-400 mt-1 mb-2">${name}</div>
                     </div>`
@@ -608,10 +608,10 @@
             const blocksEl = document.getElementById('blocks3wayReference');
             if (blocksEl) {
                 blocksEl.innerHTML = Object.entries(fs3wayBlocks).map(([num, name]) =>
-                    `<div class="text-center cursor-pointer hover:opacity-80 pb-4" onclick="openModal('/static/formations/3WAY-${num}.png', '${num} - ${name}')">
+                    `<div class="text-center cursor-pointer hover:opacity-80 pb-4" onclick="openModal('static/formations/3WAY-${num}.png', '${num} - ${name}')">
                         <div class="font-bold text-lg">${num}</div>
                         <div class="bg-white rounded mx-auto inline-block p-2">
-                            <img src="/static/formations/3WAY-${num}.png" alt="${num}" class="w-24">
+                            <img src="static/formations/3WAY-${num}.png" alt="${num}" class="w-24">
                         </div>
                         <div class="text-xs text-gray-400 mt-1 mb-2">${name}</div>
                     </div>`
@@ -633,9 +633,9 @@
                 const element = document.getElementById(el);
                 if (element) {
                     element.innerHTML = Object.entries(data).map(([code, info]) =>
-                        `<div class="text-center cursor-pointer hover:opacity-80" onclick="openModal('/static/formations/${code}.png', '${code} - ${info.name}')">
+                        `<div class="text-center cursor-pointer hover:opacity-80" onclick="openModal('static/formations/${code}.png', '${code} - ${info.name}')">
                             <div class="font-bold text-sm">${code}</div>
-                            <img src="/static/formations/${code}.png" alt="${code}" class="w-16 h-16 object-contain bg-white rounded mx-auto">
+                            <img src="static/formations/${code}.png" alt="${code}" class="w-16 h-16 object-contain bg-white rounded mx-auto">
                             <div class="text-xs text-gray-400 mt-1 max-w-16 truncate">${info.name}</div>
                         </div>`
                     ).join('');
@@ -988,11 +988,11 @@
                         const f = round.formations[formIdx];
                         let imgPath;
                         if (isVFS) {
-                            imgPath = `/static/formations/${f.value}.png`;
+                            imgPath = `static/formations/${f.value}.png`;
                         } else if (f.is3way) {
-                            imgPath = `/static/formations/3WAY-${f.value}.png`;
+                            imgPath = `static/formations/3WAY-${f.value}.png`;
                         } else {
-                            imgPath = `/static/formations/FS-${f.value}.png`;
+                            imgPath = `static/formations/FS-${f.value}.png`;
                         }
                         const isBlock = f.type === 'block';
                         const sizeClass = isBlock ? 'w-14 h-36' : 'w-16 h-16';
@@ -1085,7 +1085,7 @@
             html += '<div><h4 class="font-bold text-blue-400 mb-2">Randoms (1 pt)</h4><div class="flex flex-wrap gap-2">';
             randoms.forEach(r => {
                 const name = isVFS ? (allVFSFormations[r]?.name || r) : (fs4wayRandoms[r] || r);
-                const imgSrc = isVFS ? `/static/formations/${r}.png` : `/static/formations/FS-${r}.png`;
+                const imgSrc = isVFS ? `static/formations/${r}.png` : `static/formations/FS-${r}.png`;
                 html += `<div class="cursor-pointer hover:ring-2 hover:ring-blue-400 rounded p-1 bg-gray-700" onclick="selectFormation(${roundIdx}, ${formIdx}, 'random', '${r}', '${name.replace(/'/g, "\\'")}')">
                     <img src="${imgSrc}" alt="${r}" class="w-12 h-12 object-contain bg-white rounded">
                     <div class="text-center text-xs mt-1">${r}</div>
@@ -1099,13 +1099,13 @@
                     let name, imgSrc;
                     if (isVFS) {
                         name = allVFSFormations[b]?.name || b;
-                        imgSrc = `/static/formations/${b}.png`;
+                        imgSrc = `static/formations/${b}.png`;
                     } else if (is3way) {
                         name = fs3wayBlocks[b] || b;
-                        imgSrc = `/static/formations/3WAY-${b}.png`;
+                        imgSrc = `static/formations/3WAY-${b}.png`;
                     } else {
                         name = fs4wayBlocks[b] || b;
-                        imgSrc = `/static/formations/FS-${b}.png`;
+                        imgSrc = `static/formations/FS-${b}.png`;
                     }
                     html += `<div class="cursor-pointer hover:ring-2 hover:ring-purple-400 rounded p-1 bg-gray-700" onclick="selectFormation(${roundIdx}, ${formIdx}, 'block', '${b}', '${name.replace(/'/g, "\\'")}', ${is3way})">
                         <img src="${imgSrc}" alt="${b}" class="w-12 h-20 object-contain bg-white rounded">
