@@ -39,7 +39,7 @@ for root, dirs, files in os.walk(static_dir):
 # py2app options
 OPTIONS = {
     'argv_emulation': False,
-    'iconfile': None,  # Add path to .icns file if you have one
+    'iconfile': 'DrawGenerator.icns',
     'plist': {
         'CFBundleName': APP_NAME,
         'CFBundleDisplayName': APP_NAME,
