@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+/tmp/
